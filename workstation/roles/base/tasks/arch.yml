@@ -1,0 +1,62 @@
+---
+- name: Install Arch Base Packages
+  pacman:
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - base
+    - base-devel
+    - linux
+    - linux-firmware
+    - man-db
+    - man-pages
+    - texinfo
+    - net-tools
+    - lvm2
+    - wpa_supplicant
+    - vim
+    - zstd
+    - wget
+    - curl
+    - dhcpcd
+    - git
+    - efibootmgr
+    - intel-ucode
+    - libfido2
+    - nss-pam-ldapd
+    - openldap
+    - openssh
+    - sssd
+    - sudo
+    - terminus-font
+    - nfs-utils
+    - libnfs
+    - zsh
+    - python
+    - python-pip
+    - acpid
+    - acpi
+    - tlp
+
+- name: Install Core utilities
+  pacman:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - coreutils
+      - diffutils
+      - findutils
+      - util-linux
+      - binutils
+      - neovim
+      - python-pynvim
+      - rustup
+
+- name: Install Docker
+  pacman:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - docker
+      - docker-compose
+      - docker-machine

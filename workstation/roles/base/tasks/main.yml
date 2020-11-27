@@ -1,0 +1,15 @@
+- name: "Install Base Packages for Arch Linux"
+  include: "arch.yml"
+  when: ansible_facts['distribution'] == 'Archlinux'
+
+
+- name: Python Dependencies
+  pip:
+    executable: pip3
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - boto
+      - boto3
+      - botocore
+  become: yes
